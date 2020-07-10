@@ -24,12 +24,18 @@ class Driver:
         options.add_argument('--verbose')
         return options
 
-    def get_element_text(self,  xpath=''):
+    def get_element_text(self,  xpath='') -> str:
         element = self.get_element(xpath)
         return element.text
 
-    def get_element(self, xpath=''):
+    def get_element(self, xpath='') -> property:
         return self.__driver.find_element_by_xpath(xpath)
 
     def get_element_with_index(self, xpath='', index=-1):
         return self.__driver.find_element_by_xpath(xpath)[index]
+
+    def set_url(self, url=''):
+        self.__driver.get(url)
+
+    def quit(self):
+        self.__driver.quit()
