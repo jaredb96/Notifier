@@ -34,6 +34,9 @@ class Driver:
     def get_element_with_index(self, xpath='', index=-1):
         return self.__driver.find_element_by_xpath(xpath)[index]
 
+    def get_element_text_with_tag_name(self, tag_name=''):
+        return self.__driver.find_element_by_tag_name(tag_name).text
+
     def set_url(self, url=''):
         self.__driver.get(url)
 
